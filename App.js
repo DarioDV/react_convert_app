@@ -13,11 +13,9 @@ state = {
   handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    this.setState({ [name]: value});
     const tempcelsius = (value-32)/1.80;
-    this.setState({valcelsius: tempcelsius});
-    this.setState({celsius: tempcelsius});
-    
+    this.setState({ valcelsius: tempcelsius});
+
     //this.setState({[event.target.name]: event.target.value});
     //const tempC= this.state.Celsius;
     //const fahren = (tempC * 1.80) + 32;
@@ -28,7 +26,8 @@ state = {
     return (
       <div>
       <h1 className="App"> Conversione da Fahrenheit a Celsius </h1>
-      <Form/>
+      <Form value={this.state.fahren} />
+      <p>conversione {this.state.valcelsius} </p>
       </div>
     );
   }
