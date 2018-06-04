@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Form from './Form.js';
+import Form from './component/Form.js';
 
 class App extends Component {
 state = {
@@ -13,22 +13,43 @@ state = {
   handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    const tempcelsius = (value-32)/1.80;
-    this.setState({ valcelsius: tempcelsius});
-
-    //this.setState({[event.target.name]: event.target.value});
-    //const tempC= this.state.Celsius;
-    //const fahren = (tempC * 1.80) + 32;
-    //this.setState({valfahren: fahren});
+    console.log({value});
+    this.setState({[name]: value});
   }
 
+  handleChangeSubmitF = (event) => {
+    event.preventDefault();
+    const temp = this.state.fahren;
+    const tempcelsius = (temp-32)/1.80;
+    this.setState({ valcelsius: tempcelsius});
+  }
+
+  handleChangeSubmitC = (event) => {
+    event.preventDefault();
+    const temp = this.state.celsius;
+    const tempfahren = (temp*1.80) + 32 ;
+    this.setState({ valfahren: tempfahren});
+  }
+  handleClear = (event) => {
+    event.preventDefault();
+    this.setState({ fahren: '', celsius: '', valcelsius:'', valfahren: ''});
+  }
   render() {
+    
     return (
-      <div>
+    <div>
       <h1 className="App"> Conversione da Fahrenheit a Celsius </h1>
-      <Form value={this.state.fahren} />
-      <p>conversione {this.state.valcelsius} </p>
-      </div>
+     
+      <Form {...this.state} />
+      <button onClick={this.handleChangeSubmitF}> test </button><br />
+      <p>Converted value F° to C° {this.state.valcelsius}<br /> 
+        Converted value F° to C° {this.state.valfahren}<br/></p>
+        {this.state.valcelsius > 100 &&
+          <h2>
+          a Napoli bolle la pasta 
+          </h2>
+        }
+    </div>
     );
   }
 }
