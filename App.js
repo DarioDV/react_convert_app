@@ -40,7 +40,7 @@ state = {
     <div>
       <h1 className="App"> Conversione da Fahrenheit a Celsius </h1>
      
-      <Form {...this.state} />
+      <Form fahren={this.state.fahren} celsius={this.state.celsius} /> 
       <p>Converted value F° to C° {this.state.valcelsius}<br /> 
         Converted value F° to C° {this.state.valfahren}<br/></p>
         {this.state.valcelsius > 100 &&
