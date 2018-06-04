@@ -41,12 +41,11 @@ state = {
       <h1 className="App"> Conversione da Fahrenheit a Celsius </h1>
      
       <Form {...this.state} />
-      <button onClick={this.handleChangeSubmitF}> test </button><br />
       <p>Converted value F° to C° {this.state.valcelsius}<br /> 
         Converted value F° to C° {this.state.valfahren}<br/></p>
         {this.state.valcelsius > 100 &&
           <h2>
-          a Napoli bolle la pasta 
+          a Napoli bolle l'acqua.. 
           </h2>
         }
     </div>
