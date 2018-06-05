@@ -6,19 +6,26 @@ class Form extends React.Component {
     <div>
 
     <form>
+      
+      <div>
         <label>
           Insert Fahrenheit : 
-          <input type="number" name="fahren" value={this.props.fahren} onChange={this.handleChange}/>
         </label>
-        <button onClick={this.handleChangeSubmitF}> Convert F° to C° </button><br />
+        <input type="number" size="64" maxLength="64" name="fahren" value={this.props.fahren} onChange={this.props.onChange} />
+        <button onClick={this.props.submitF}> Convert F° to C° </button><br /><br />
+      </div>
+
+      <div>
         <label>
-         Insert Celsius : 
-          <input type="number" name="celsius" value={this.props.celsius} onChange={this.handleChange}/>
+         Insert Celsius :  
         </label>
-        <button onClick={this.handleChangeSubmitC}> Convert C° to F° </button><br />
-        <button onClick={this.handleClear}> Clear All </button>
+        <input type="number" size="64" maxLength="64" name="celsius" value={this.props.celsius} onChange={this.props.onChange} />
+        <button onClick={this.props.submitC}> Convert C° to F° </button><br /><br />
+      </div>
+
+        <button onClick={this.props.clear}> Clear All </button>
     </form>
-   
+
     </div>
     );
   }
