@@ -41,8 +41,8 @@ state = {
       <h1 className="App-header"> This app convert <br /> Fahrenheit to Celsius <br />Celsius to Fahrenheit  </h1>
      
       <Form fahren={this.state.fahren} celsius={this.state.celsius} onChange={this.handleChange} submitF={this.handleChangeSubmitF} submitC={this.handleChangeSubmitC} clear={this.handleClear} /> 
-      <p>Converted value F° to C° {this.state.valcelsius}<br /> 
-        Converted value F° to C° {this.state.valfahren}<br/></p>
+      <p>Converted value F° to C° <p className="App-p">{this.state.valcelsius} </p><br /> 
+        Converted value F° to C° <p className="App-p">{this.state.valfahren}<br/></p> </p>
         {this.state.valcelsius > 100 &&
           <h2>
           a Napoli bolle l'acqua.. 
